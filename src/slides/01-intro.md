@@ -69,6 +69,16 @@ $ terraform init
 
 ---
 
+# Provider documentation
+
+![Google Cloud provider documentation](./documentation.png)
+
+https://www.terraform.io/docs/providers/google/index.html → `…/d/…`
+
+<!-- https://www.terraform.io/docs/providers/google/d/datasource_compute_instance.html -->
+
+---
+
 # Resource
 
 ```sh
