@@ -1,3 +1,17 @@
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-prismjs`],
+    },
+  },
+];
+```
+
+---
+
 # Terraform
 
 I'm not an expert,<br /> I have learnt something
@@ -60,6 +74,14 @@ https://www.terraform.io/docs/glossary.html
 ---
 
 # Provider
+
+```
+provider "google" {
+  project = "propane-atrium-235005"
+  region  = "europe-west2"
+  zone    = "europe-west2-a"
+}
+```
 
 <!-- gcloud auth application-default login -->
 
