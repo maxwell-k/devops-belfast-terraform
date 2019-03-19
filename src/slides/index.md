@@ -75,7 +75,7 @@ https://www.terraform.io/docs/glossary.html
 
 # Provider
 
-```
+```hcl
 provider "google" {
   project = "propane-atrium-235005"
   region  = "europe-west2"
@@ -132,7 +132,7 @@ Resources or https://www.terraform.io/docs/providers/google/
 
 # 11 March 2019
 
-```
+```sh
 $ curl --silent https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_SHA256SUMS | grep linux_amd64
 5925cd4d81e7d8f42a0054df2aafd66e2ab7408dbed2bd748f0022cfe592f8d2  terraform_0.11.13_linux_amd64.zip
 $ curl --silent https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_SHA256SUMS | grep linux_amd64

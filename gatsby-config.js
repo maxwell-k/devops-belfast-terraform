@@ -29,7 +29,12 @@ module.exports = {
               maxWidth: 1920,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: { sh: 'bash' },
+            },
+          },
         ],
       },
     },
