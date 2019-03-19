@@ -1,4 +1,4 @@
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "example" {
   name         = "example"
   machine_type = "n1-standard-1"
 
