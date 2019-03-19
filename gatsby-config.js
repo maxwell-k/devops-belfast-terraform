@@ -19,6 +19,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              directory: `${__dirname}`,
+            },
+          },
           `gatsby-remark-copy-images`,
           {
             resolve: `gatsby-remark-images`,

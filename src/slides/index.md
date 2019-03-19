@@ -1,25 +1,16 @@
-```javascript
-// In your gatsby-config.js
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [`gatsby-remark-prismjs`],
-    },
-  },
-];
-```
-
----
-
 # Terraform
 
-I'm not an expert,<br /> I have learnt something
+I'm not an expert,<br /> I've learnt something
 
 <!--
 
+Keeping this presentation simple
+
+Used UK examples because of Brexit
+
 Recent project experience:
 
+- using terraform since May last year, mostly with Ansible
 - disposable environments
 - running in separate AWS sub-accounts
 
@@ -73,21 +64,11 @@ https://www.terraform.io/docs/glossary.html
 
 ---
 
-# Provider
+<span class=mono>gcp/provider.tf:</span>
 
-```hcl
-provider "google" {
-  project = "propane-atrium-235005"
-  region  = "europe-west2"
-  zone    = "europe-west2-a"
-}
-```
+`embed:gcp/provider.tf`
 
 <!-- gcloud auth application-default login -->
-
-```sh
-$ terraform init
-```
 
 ---
 
@@ -95,42 +76,210 @@ $ terraform init
 
 ![Google Cloud provider documentation](./documentation.png)
 
-https://www.terraform.io/docs/providers/google/index.html → `…/d/…`
+https://www.terraform.io/docs/providers/google/index.html → "…/d/…"
 
 <!-- https://www.terraform.io/docs/providers/google/d/datasource_compute_instance.html -->
 
 ---
 
-# Resource
+```sh
+$ terraform init
+```
+
+[Recording](/recorded/init.html)
+
+<!--
+
+cd ~/terraform/gcp
+find .terraform
+terraform init
+find .terraform
+
+look at .terraform
+would include modules
+
+-->
+
+---
+
+<span class=mono>./gcp/resource.tf:</span>
+
+<div class="long">
+
+`embed:gcp/resource.tf`
+
+</div>
+
+---
+
+# Plan then apply
 
 ```sh
 $ terraform apply
 $ gcloud compute ssh example
 ```
 
+<!--
+
+Plan gives you a chance to check
+
+Destroy the opposite
+
+-->
+
+[Recording](/recorded/apply.html)
+
 <!-- https://console.cloud.google.com/compute/instances -->
 
 ---
 
-# Tools
+<span class=mono>./gcp/terraform.tfstate:</span>
 
-`$ terraform fmt`
+<div class="twoColumn half">
 
-<!-- like black or prettier -->
+```
+{
+    "version": 3,
+    "terraform_version": "0.11.13",
+    "serial": 3,
+    "lineage": "████████-████-████-████-████████████",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {},
+            "resources": {
+                "google_compute_instance.default": {
+                    "type": "google_compute_instance",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "example",
+                        "attributes": {
+                            "attached_disk.#": "0",
+✂
+```
 
-Ansible terraform module
+```
+…
+                        },
+                        "meta": {
+                            "████████-████-████-████-████████████": {
+                                "create": 360000000000,
+                                "delete": 360000000000,
+                                "update": 360000000000
+                            },
+                            "schema_version": "6"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.google"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
+```
 
-<!-- TODO: need to add screenshot -->
+</div>
 
 ---
 
-# Documentation
+# Modules
 
-Resources or https://www.terraform.io/docs/providers/google/
+> A module is a collection of .tf or .tf.json files kept together in a
+> directory.
+
+<!-- https://www.terraform.io/docs/configuration/index.html -->
+
+- `variables.tf`: inputs, sometimes empty
+- `main.tf`: resources
+- `outputs.tf` sometimes empty
+
+<!--
+
+I often use modules to avoid repeating configuration
+
+-->
+
+---
+
+<div class=majority>
+
+<div>
+<span class=mono>aws/ubuntu/variables.tf</span> is empty
+<span class=mono>aws/ubuntu/main.tf:</span>
+
+`embed:aws/ubuntu/main.tf`
+
+</div>
+<div>
+<span class=mono>aws/ubuntu/outputs.tf:</span>
+
+`embed:aws/ubuntu/outputs.tf`
+
+</div>
+
+</div>
+
+<!--
+
+Can apply this module:
+
+cd ~/terraform/aws/ubuntu
+terraform init
+terraform apply
+
+-->
+
+---
+
+# More advanced modules
+
+- `override.tf` often in `.gitignore` better than `TF_VAR_name`
+- symbolic links
+
+> A module is a container for multiple resources that are used together.
+
+<!--
+
+Will change in 0.12
+
+Example of overrides might be:
+
+- SSH keys in a different local location
+- an S3 bucket name
+
+https://www.terraform.io/docs/configuration-0-11/override.html
+
+-->
+
+---
+
+# Simple example
+
+---
+
+<!-- other things I'd like to mention -->
+
+- `$ terraform fmt`
+
+<!-- like black or prettier -->
+
+- Ansible terraform module
+
+- Many [providers](https://www.terraform.io/docs/providers/index.html): ACME,
+  kubernetes, PostgreSQL
+
+- Overlap
 
 ---
 
 # 11 March 2019
+
+<div id=issue>
 
 ```sh
 $ curl --silent https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_SHA256SUMS | grep linux_amd64
@@ -141,10 +290,14 @@ d57dd17c61a63073191503302ea44352ba7a274e2c7944c4b38b97477a347aa5  terraform_0.11
 
 > Very sorry you encountered this issue @maxwell-k. We pushed new zip files
 > earlier today after getting feedback that the Solaris binaries did not got
-> uploaded properly during the initial upload.
+> uploaded properly during the initial upload. ✂
 
 > To be a bit more explicit, if a situation like this occurs again we plan to
 > issue a new release and not re-issue a previous release.
+
+— https://github.com/hashicorp/terraform/issues/20661
+
+</div>
 
 <!--
 
@@ -154,14 +307,47 @@ Immutability is the inability to be changed
 ✂
 https://www.hashicorp.com/tao-of-hashicorp
 
+
 -->
 
 ---
 
 # Why terraform?
 
-- Open source
-- Portable across vendors
 - Reproducible
+- More portable across vendors
+- Open source
+
+# Why not?
+
+- Immediate prompts to update, unusual approach to versioning
+- No backwards compatibility
+- Tired of running VMs, want a managed service
+
+---
+
+# Questions?
+
+<div class=right>
+
+# Discussion
+
+</div>
+
+<hr />
+
+<div class=twoColumn>
+
+<keith.maxwell@gmail.com>
+
+<https://www.linkedin.com/in/ksmaxwell/>
+
+</div>
+
+<hr />
+
+```
+terraform destroy
+```
 
 <!-- vim: set spellcapcheck= nowrap conceallevel=0 : -->

@@ -54,12 +54,7 @@ a {
 }
 
 blockquote {
-  font-size: 120%;
-  font-weight: bold;
-
-  width: 50vw;
-
-  text-align: left;
+  font-style: italic;
 }
 
 @media (max-width: 900px) {
@@ -88,10 +83,6 @@ cite {
 
 cite::before {
   content: '\2014\00a0';
-}
-
-code {
-  text-align: left;
 }
 
 a:hover {
@@ -144,4 +135,51 @@ header a:hover {
 
 header span {
   color: var(--text);
+}
+
+#issue {
+  font-size: 0.75em;
+}
+
+#issue {
+  text-align: right;
+}
+
+#issue blockquote {
+  text-align: left;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+div.long pre {
+  line-height: 1;
+  font-size: 1rem;
+}
+
+div.twoColumn {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+div.majority div.gatsby-highlight,
+div.twoColumn div.gatsby-highlight {
+  padding-right: 1em;
+}
+div.twoColumn pre {
+  line-height: 1;
+  font-size: 0.5rem;
+}
+
+div.majority {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+div.majority pre {
+  line-height: 1;
+  font-size: 0.8rem;
+}
+.right {
+  text-align: right;
+  font-style: italic;
 }

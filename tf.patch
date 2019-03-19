@@ -1,0 +1,20 @@
+diff -Naur a/node_modules/gatsby-remark-embed-snippet/index.js b/node_modules/gatsby-remark-embed-snippet/index.js
+--- a/node_modules/gatsby-remark-embed-snippet/index.js	2019-03-19 09:12:27.950345481 +0000
++++ b/node_modules/gatsby-remark-embed-snippet/index.js	2019-03-19 09:12:55.716346015 +0000
+@@ -14,7 +14,8 @@
+   js: "jsx",
+   md: "markup",
+   sh: "bash",
+-  rb: "ruby"
++  rb: "ruby",
++  tf: "hcl"
+ };
+ 
+ var getLanguage = function getLanguage(file) {
+@@ -80,4 +81,4 @@
+     }
+   });
+   return markdownAST;
+-};
+\ No newline at end of file
++};
