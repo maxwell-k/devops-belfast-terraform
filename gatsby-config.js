@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     name: `Keith Maxwell`,
-    title: `Terraform`,
+    title: `https://maxwell-k.github.io/devops-belfast-terraform`,
     date: `19 March 2019`,
   },
   plugins: [
@@ -38,7 +38,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              aliases: { sh: 'bash' },
+              aliases: { sh: 'bash', tf: 'hcl' },
             },
           },
         ],

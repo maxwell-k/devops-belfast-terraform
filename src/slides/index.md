@@ -21,6 +21,8 @@ Not going to cover expert topics:
 - collaboration or remote backends
 - module registry
 
+How many people have used terraform before?
+
 -->
 
 ---
@@ -214,11 +216,23 @@ I often use modules to avoid repeating configuration
 
 `embed:aws/ubuntu/main.tf`
 
+[Recording](/recorded/ubuntu.html)
+
 </div>
 <div>
 <span class=mono>aws/ubuntu/outputs.tf:</span>
 
 `embed:aws/ubuntu/outputs.tf`
+
+```tf
+module "ami" {
+  source = "../../modules/ubuntu"
+}
+
+resource "aws_instance" "control" {
+  ami                    = "${module.ami.id}"
+✂
+```
 
 </div>
 
@@ -274,6 +288,8 @@ https://www.terraform.io/docs/configuration-0-11/override.html
   kubernetes, PostgreSQL
 
 - Overlap
+
+- Chicken or egg? Provisioner calls terraform? Terraform calls provisioner?
 
 ---
 
