@@ -16,7 +16,7 @@
     "gatsby-remark-prismjs": "^3.2.6",
     "gatsby-remark-relative-images": "^0.2.1",
     "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-transformer-remark": "^2.3.5",
+    "gatsby-transformer-remark": "^2.3.6",
     "gatsby-transformer-sharp": "^2.1.9",
     "prismjs": "git+https://github.com/PrismJS/prism.git",
     "react": "^16.5.1",
