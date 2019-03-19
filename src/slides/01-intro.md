@@ -1,25 +1,81 @@
-# Gatsby Deck
+# Terraform
 
-Create presentations using Gatsby & React.
+I'm not an expert,<br /> I have learnt something
+
+<!--
+
+Recent project experience:
+
+- disposable environments
+- running in separate AWS sub-accounts
+
+Not going to cover expert topics:
+
+- loops
+- kubernetes
+- collaboration or remote backends
+- module registry
+
+-->
 
 ---
 
-> Inscrutable icons litter the face of the devices even though the research
-> community has long demonstrated that people cannot remember the meaning of
-> more than a small number of icons […] Who can remember what each icon
-> means? Not me.
-> <cite>Don Norman</cite>
+# Why terraform?
+
+- Open source
+- Portable\*
+- Reproducible
+- Disposable environments
 
 ---
 
-# 🤫
+```sh
+$ terraform --version
+Terraform v0.11.13
+```
+
+<!--
+
+- breaking changes in 0.12
+- delayed, quarter 1 2019
+- improvements to Hashicorp Configuration Language HCL
+
+-->
 
 ---
 
-## Slides are written in Markdown!
+# HCL
 
-Here's the source of the first slide:
+<!--
 
-    # Gatsby Deck
+- 1:1 mapping to JSON in 0.12
 
-    Create presentations using Gatsby & React.
+https://www.terraform.io/docs/glossary.html
+
+-->
+
+- Provider
+
+<!-- plugin, tied to an infrastructure provider -->
+
+- Resource
+
+<!-- object that terraform manages: creates, modifies or destroys -->
+
+- State
+
+<!-- cached information about managed infrastructure, often shared -->
+
+---
+
+# Tools and documentation
+
+`$ terraform fmt`
+
+<!-- like black or prettier -->
+
+---
+
+# Documentation
+
+Resources or https://www.terraform.io/docs/providers/google/

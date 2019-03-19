@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-deck",
-  "description": "Create presentations using Gatsby, React & Markdown.",
-  "version": "2.0.0",
-  "author": "Fabian Schultz <desk@fabianschultz.com>",
+  "name": "terraform",
+  "description": "Terraform presentation for DevOps Belfast",
+  "version": "0.0.1",
+  "author": "Keith Maxwell <keith.maxwell@gmail.com>",
   "dependencies": {
     "gatsby": "^2.0.33",
     "gatsby-plugin-layout": "^1.0.1",
@@ -25,10 +25,6 @@
     "remark-html": "^8.0.0",
     "remark-preset-lint-recommended": "^3.0.2"
   },
-  "keywords": [
-    "gatsby",
-    "gatsby-starter"
-  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
