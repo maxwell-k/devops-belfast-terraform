@@ -1,3 +1,6 @@
+.terraform
 /.cache/
 /node_modules
 /public/
+terraform.tfstate
+terraform.tfstate.backup

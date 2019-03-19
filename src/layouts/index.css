@@ -6,12 +6,6 @@
   --base: 1.5rem;
 }
 
-@media (max-width: 600px) {
-  :root {
-    --base: 1.2rem;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -44,8 +38,6 @@ html {
   width: 100vw;
   height: 100vh;
   padding: 1rem;
-
-  text-align: center;
 
   -webkit-overflow-scrolling: touch;
 }
@@ -98,22 +90,8 @@ cite::before {
   content: '\2014\00a0';
 }
 
-pre {
-  font-size: 70%;
-
-  display: inline-block;
-  overflow-x: scroll;
-
-  margin: 2rem 0;
-
-  text-align: left;
-
-  color: var(--accent);
-}
-
 code {
-  font-family: menlo, monospace;
-  font-size: 90%;
+  text-align: left;
 }
 
 a:hover {
@@ -121,8 +99,7 @@ a:hover {
 }
 
 h1 {
-  font-size: 200%;
-
+  font-size: 2em;
   margin-bottom: 0.5rem;
 }
 
