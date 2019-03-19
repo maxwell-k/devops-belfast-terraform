@@ -2,6 +2,10 @@ module "ami" {
   source = "../../aws/ubuntu"
 }
 
+module "gcp" {
+  source = "../gcp"
+}
+
 provider "aws" {
   region  = "eu-west-2"
   version = "~> 1.23"
@@ -40,8 +44,8 @@ resource "aws_security_group" "default" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "Allow SSH access"
+    cidr_blocks = ["${module.gcp.ip}/32"]
+    description = "Allow SSH access from GCP only"
   }
 
   egress {
@@ -51,12 +55,4 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "Allow internet access"
   }
-}
-
-output "address" {
-  value = "${aws_instance.managed.public_dns}"
-}
-
-output "id" {
-  value = "${aws_instance.managed.id}"
 }
