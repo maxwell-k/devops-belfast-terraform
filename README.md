@@ -35,10 +35,11 @@ successfully.
 - `npm run build` fails with 2.0.33
 - `npm run develop` fails with 2.2.0
 
-The version below can build a production site and run the development server:
+The versions below can build a production site and run the development server:
 
 ```sh
 npm install gatsby@2.0.120
+npm install gatsby@2.1.39
 ```
 
 ## Patch to syntax highlight "HCL" in "\*.tf"
