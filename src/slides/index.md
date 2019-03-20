@@ -125,7 +125,11 @@ $ gcloud compute ssh example
 
 Plan gives you a chance to check
 
-Destroy the opposite
+Interactivity is optional
+
+0.12 will have a machine readable plan output
+
+Destroy does the opposite
 
 -->
 
