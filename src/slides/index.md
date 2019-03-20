@@ -211,8 +211,8 @@ I often use modules to avoid repeating configuration
 <div class=majority>
 
 <div>
-<span class=mono>aws/ubuntu/variables.tf</span> is empty
-<span class=mono>aws/ubuntu/main.tf:</span>
+<span class=mono>ubuntu/variables.tf</span> is empty
+<span class=mono>ubuntu/main.tf:</span>
 
 `embed:aws/ubuntu/main.tf`
 
@@ -220,9 +220,9 @@ I often use modules to avoid repeating configuration
 
 </div>
 <div>
-<span class=mono>aws/ubuntu/outputs.tf:</span>
+<span class=mono>ubuntu/outputs.tf:</span>
 
-`embed:aws/ubuntu/outputs.tf`
+`embed:ubuntu/outputs.tf`
 
 ```tf
 module "ami" {
@@ -242,7 +242,7 @@ resource "aws_instance" "control" {
 
 Can apply this module:
 
-cd ~/terraform/aws/ubuntu
+cd ~/terraform/ubuntu
 terraform init
 terraform apply
 
@@ -281,9 +281,11 @@ working across two cloud vendors
 
 <!-- other things I'd like to mention -->
 
-- `$ terraform fmt`
+- `terraform fmt`
 
 <!-- like black or prettier -->
+
+- `tflint`
 
 - Ansible terraform module
 
