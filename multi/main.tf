@@ -3,7 +3,7 @@ module "ami" {
 }
 
 provider "aws" {
-  version = "~> 1.23"
+  version = "~> 2.2.0"
   region  = "eu-west-2"
 }
 

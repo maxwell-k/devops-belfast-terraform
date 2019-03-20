@@ -1,9 +1,5 @@
-output "address" {
+output "aws_public_dns" {
   value = "${aws_instance.managed.public_dns}"
-}
-
-output "id" {
-  value = "${aws_instance.managed.id}"
 }
 
 output "gcp_ip" {

@@ -215,16 +215,12 @@ I often use modules to avoid repeating configuration
 <div class=majority>
 
 <div>
-<span class=mono>ubuntu/variables.tf</span> is empty
+<span class=mono>ubuntu/variables.tf</span> is empty<br />
 <span class=mono>ubuntu/main.tf:</span>
 
-`embed:ubuntu/main.tf`
+`embed:ubuntu/main.tf` [Recording](/recorded/ubuntu.html)
 
-[Recording](/recorded/ubuntu.html)
-
-</div>
-<div>
-<span class=mono>ubuntu/outputs.tf:</span>
+</div><div><span class=mono>ubuntu/outputs.tf:</span>
 
 `embed:ubuntu/outputs.tf`
 
@@ -256,14 +252,17 @@ terraform apply
 
 # More advanced modules
 
-- `override.tf` often in `.gitignore` better than `TF_VAR_name`
+- <span class=mono>override.tf</span> often in <span
+  class=mono>.gitignore</span> probably better than environment variables
 - symbolic links
 
 > A module is a container for multiple resources that are used together.
 
 <!--
 
-Will change in 0.12
+Overrides will change in 0.12 with additional functionality
+
+Terraform supports TF_VAR_name
 
 Example of overrides might be:
 
@@ -301,11 +300,11 @@ ssh ubuntu@<DNS_name>
 
 <!-- other things I'd like to mention -->
 
-- `terraform fmt`
+- `$ terraform fmt`
 
 <!-- like black or prettier -->
 
-- `tflint`
+- `$ tflint`
 
 - Ansible terraform module
 
