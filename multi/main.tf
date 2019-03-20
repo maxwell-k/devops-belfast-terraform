@@ -1,9 +1,5 @@
 module "ami" {
-  source = "../../aws/ubuntu"
-}
-
-module "gcp" {
-  source = "../gcp"
+  source = "../ubuntu"
 }
 
 provider "aws" {
@@ -44,7 +40,7 @@ resource "aws_security_group" "default" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${module.gcp.ip}/32"]
+    cidr_blocks = ["${google_compute_instance.example.network_interface.0.access_config.0.nat_ip}/32"]
     description = "Allow SSH access from GCP only"
   }
 

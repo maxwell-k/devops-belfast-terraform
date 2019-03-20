@@ -214,7 +214,7 @@ I often use modules to avoid repeating configuration
 <span class=mono>ubuntu/variables.tf</span> is empty
 <span class=mono>ubuntu/main.tf:</span>
 
-`embed:aws/ubuntu/main.tf`
+`embed:ubuntu/main.tf`
 
 [Recording](/recorded/ubuntu.html)
 
@@ -274,8 +274,24 @@ https://www.terraform.io/docs/configuration-0-11/override.html
 
 # Multi cloud
 
-Yes I realise this doesn't work in the real world, but it demonstrates one tool
-working across two cloud vendors
+This demo shows one tool working across two cloud vendors, it isn't trying to be
+a real world solution
+
+<!--
+
+The demo creates a bastion host on a Google Cloud and connection
+to an EC2 instance
+
+rm ~/.ssh/known_hosts
+cd ~/terraform/multi
+terraform init
+terraform apply
+ssh ubuntu@<DNS_name>  # times out
+gcloud compute ssh example
+ssh -A <address>
+ssh ubuntu@<DNS_name>
+
+-->
 
 ---
 
