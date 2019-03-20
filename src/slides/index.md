@@ -230,7 +230,7 @@ module "ami" {
 }
 
 resource "aws_instance" "control" {
-  ami                    = "${module.ami.id}"
+  ami = "${module.ami.id}"
 ✂
 ```
 

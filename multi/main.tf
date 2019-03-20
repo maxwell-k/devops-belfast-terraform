@@ -3,8 +3,8 @@ module "ami" {
 }
 
 provider "aws" {
-  region  = "eu-west-2"
   version = "~> 1.23"
+  region  = "eu-west-2"
 }
 
 resource "aws_key_pair" "default" {

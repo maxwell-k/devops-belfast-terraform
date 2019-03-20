@@ -1,5 +1,6 @@
 provider "aws" {
-  region = "eu-west-2"
+  version = "~> 2.2"
+  region  = "eu-west-2"
 }
 
 data "aws_ami" "selected" {
