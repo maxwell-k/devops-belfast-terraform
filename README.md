@@ -3,26 +3,53 @@
 For [DevOps Belfast](https://www.meetup.com/DevOps-Belfast/events/dfpsxkyzfbzb/)
 Tuesday 19 March 2019
 
-The starter that this presentation is based upon, does not run with later
-versions of `gatsby`. This presentation is known to work with 2.0.33 and fail
-with 2.2.0:
+## Quick start
 
-```sh
-npm install gatsby@2.0.33
+To build this presentation:
+
+```
+npm install &&
+patch node_modules/gatsby-remark-embed-snippet/index.js tf.patch &&
+npm run build &&
+npm run serve
 ```
 
-Write to GitHub pages with:
+To deploy to GitHub pages:
 
-```sh
+```
 npm run deploy
 ```
 
+To run a development server that will live reload changes to slides:
+
+```
+npm run develop
+```
+
+## Gatsby versions
+
+This presentation and the starter that it is based upon, requires a very
+specific version of Gatsby for the "develop" and "build" scripts to complete
+successfully.
+
+- `npm run build` fails with 2.0.33
+- `npm run develop` fails with 2.2.0
+
+The version below can build a production site and run the development server:
+
+```sh
+npm install gatsby@2.0.120
+```
+
 ## Patch to syntax highlight "HCL" in "\*.tf"
+
+This is necessary because the "gatsby-remark-embed-snippet" plugin has a
+[very short list of supported languages](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-embed-snippet/src/index.js#L11)
 
 ```sh
 patch node_modules/gatsby-remark-embed-snippet/index.js tf.patch
 ```
 
-## Author
+## Presentation author
 
 - Keith Maxwell
