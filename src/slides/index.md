@@ -1,6 +1,6 @@
 # Terraform
 
-I'm not an expert,<br /> I've learnt something
+I've learnt something
 
 <!--
 
