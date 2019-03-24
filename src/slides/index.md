@@ -200,9 +200,9 @@ Destroy does the opposite
 
 <!-- https://www.terraform.io/docs/configuration/index.html -->
 
-- `variables.tf`: inputs, sometimes empty
-- `main.tf`: resources
-- `outputs.tf` sometimes empty
+- <span class=mono>variables.tf</span>: inputs, sometimes empty
+- <span class=mono>main.tf</span>: resources
+- <span class=mono>outputs.tf</span>: sometimes empty
 
 <!--
 
