@@ -7,10 +7,16 @@ Tuesday 19 March 2019
 
 To build this presentation:
 
-```
+```sh
 rm -rf .cache public node_modules &&
 npm ci &&
 patch node_modules/gatsby-remark-embed-snippet/index.js tf.patch &&
+cd static/recorded &&
+player=https://github.com/asciinema/asciinema-player/releases/download/v2.6.1 &&
+curl -OL $player/asciinema-player.css &&
+curl -OL $player/asciinema-player.js &&
+unset player &&
+cd ../.. &&
 npm run build &&
 npm run serve
 ```
